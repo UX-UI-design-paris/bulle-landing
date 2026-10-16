@@ -199,7 +199,8 @@
   /* app preview section */
   .app-grid{ display:grid; grid-template-columns:1.1fr .9fr; gap:56px; align-items:center; }
   @media (max-width:900px){ .app-grid{ grid-template-columns:1fr; } }
-  .feature-list{ display:flex; flex-direction:column; gap:16px; margin-top:28px; }
+  .feature-list{ display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:28px; }
+  @media (max-width:900px){ .feature-list{ grid-template-columns:1fr; } }
   .feature-item{
     display:flex; gap:14px; align-items:flex-start; background:#fff;
     border:1px solid var(--ring); border-bottom-width:3px; border-radius:16px; padding:16px 18px;
@@ -292,7 +293,7 @@
   .footer-nav{ display:flex; gap:22px; flex-wrap:wrap; }
   .footer-nav a, .footer-nav button{ text-decoration:none; font-weight:600; font-size:14px; color:#D8C9F5; }
   .footer-note{ margin-top:26px; font-size:12.5px; color:#A991D6; line-height:1.6; max-width:760px; }
-  .footer-logo{ height:34px; width:auto; }
+  ".footer-nav button", ".footer-nav a", ".footer-contact-label", ".plan-disclaimer", ".footer-note"];
 </style>
 </head>
 <body>
@@ -569,8 +570,8 @@
     <button type="button" class="nav-pill" onclick="bulleScrollTo('faq')">FAQ</button>
   </nav>
   <div class="lang-switch" role="group" aria-label="Langue / Language">
-    <button type="button" class="lang-opt" data-lang="fr" onclick="bulleSetLang('fr')">FR</button>
-    <button type="button" class="lang-opt" data-lang="en" onclick="bulleSetLang('en')">EN</button>
+    <button type="button" class="lang-opt" data-lang="fr" onclick="bulleSetLang('fr')">🇫🇷 FR</button>
+    <button type="button" class="lang-opt" data-lang="en" onclick="bulleSetLang('en')">🇬🇧 EN</button>
   </div>
 </header>
 
@@ -616,6 +617,35 @@
         <div class="feature-item">
           <div class="ico">🧠</div>
           <div><strong>Bloop à tes côtés</strong><span>Une mascotte bienveillante qui t'accompagne, jamais qui te juge.</span></div>
+        </div>
+        <div class="feature-item">
+          <div class="ico">🫀</div>
+          <div><strong>Émotions et symptômes</strong><span>Associe ce que tu ressens dans ta tête et dans ton corps, avec un glossaire pour mettre des mots dessus.</span></div>
+        </div>
+        <div class="feature-item">
+          <div class="ico">😴</div>
+          <div><strong>Sommeil et traitement</strong><span>Garde un œil sur tes nuits et sur ton traitement, si tu en as un.</span></div>
+        </div>
+        <div class="feature-item">
+          <div class="ico">💬</div>
+          <div><strong>Pensées</strong><span>Note tes pensées du jour pour y voir plus clair.</span></div>
+        </div>
+        <div class="feature-item">
+          <div class="ico">🔄</div>
+          <div><strong>Cycle (optionnel)</strong><span>Si tu le souhaites, suis ton cycle pour repérer d'éventuels liens avec ton anxiété. Tu peux le désactiver dans les réglages.</span></div>
+        </div>
+        <div class="feature-item">
+          <div class="ico">🫁</div>
+          <div><strong>Respiration guidée</strong><span>Un exercice de respiration guidé pour te poser.</span></div>
+        </div>
+        <div class="feature-item">
+          <div class="ico">🎀</div>
+          <div><strong>Bloop à ton image</strong><span>Habille Bloop avec des accessoires.</span></div>
+        </div>
+        <div class="feature-item">
+          <div class="ico">📄</div>
+          <div><strong>Rapport PDF</strong><span>Un résumé clair de ton suivi, à garder pour toi ou à partager avec un professionnel de santé. Réservé à Bulle Premium.</span></div>
+        </div>
         </div>
       </div>
     </div>
@@ -694,6 +724,7 @@
         <div class="plan-trial">&#10024; 14 jours d&rsquo;essai gratuit</div>
       </div>
     </div>
+    <p class="plan-disclaimer">L'abonnement Bulle Premium se renouvelle automatiquement, sauf annulation au moins 24 h avant la fin de la période en cours. Le paiement est débité de ton compte Apple à la fin de l'essai gratuit de 14 jours. Tu peux gérer ou annuler ton abonnement à tout moment dans les réglages de ton compte Apple.</p>
   </div>
 </section>
 
@@ -1128,8 +1159,10 @@
         <button type="button" onclick="bulleScrollTo('comment-ca-marche')">Comment ça marche</button>
         <button type="button" onclick="bulleScrollTo('confidentialite')">Confidentialité</button>
         <button type="button" onclick="bulleScrollTo('faq')">FAQ</button>
+        <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener">Conditions d'utilisation</a>
       </nav>
     </div>
+    <p class="footer-contact"><span class="footer-contact-label">Une question, un retour ? Écris-nous :</span> <a href="mailto:labulledebloop@gmail.com">labulledebloop@gmail.com</a></p>
     <p class="footer-note">Bulle est un outil de suivi et d'auto-observation ; ce n'est pas un dispositif médical et ne se substitue pas à un avis professionnel. © La Bulle de Bloop.</p>
   </div>
 </footer>
@@ -1221,7 +1254,7 @@
   "Prêt à rejoindre Bloop ?": "Ready to join Bloop?",
   "Disponible sur iOS": "Available on iOS",
   "Bulle est un outil de suivi et d'auto-observation ; ce n'est pas un dispositif médical et ne se substitue pas à un avis professionnel. © La Bulle de Bloop.": "Bulle is a tracking and self-observation tool; it is not a medical device and does not replace professional advice. © La Bulle de Bloop.",
-  "ou 39,99€/an": "or €39.99/year"
+  "ou 39,99€/an": "or €39.99/year",   "Émotions et symptômes": "Emotions and symptoms",   "Associe ce que tu ressens dans ta tête et dans ton corps, avec un glossaire pour mettre des mots dessus.": "Link what you feel in your mind and in your body, with a glossary to help you find the right words.",   "Sommeil et traitement": "Sleep and treatment",   "Garde un œil sur tes nuits et sur ton traitement, si tu en as un.": "Keep an eye on your nights and on your treatment, if you have one.",   "Pensées": "Thoughts",   "Note tes pensées du jour pour y voir plus clair.": "Write down your thoughts of the day to see things more clearly.",   "Cycle (optionnel)": "Cycle (optional)",   "Si tu le souhaites, suis ton cycle pour repérer d'éventuels liens avec ton anxiété. Tu peux le désactiver dans les réglages.": "If you like, track your cycle to spot possible links with your anxiety. You can turn it off in the settings.",   "Respiration guidée": "Guided breathing",   "Un exercice de respiration guidé pour te poser.": "A guided breathing exercise to help you settle.",   "Bloop à ton image": "Bloop, your way",   "Habille Bloop avec des accessoires.": "Dress Bloop up with accessories.",   "Rapport PDF": "PDF report",   "Un résumé clair de ton suivi, à garder pour toi ou à partager avec un professionnel de santé. Réservé à Bulle Premium.": "A clear summary of your tracking, to keep for yourself or share with a healthcare professional. Premium only.",   "Conditions d'utilisation": "Terms of Use",   "Une question, un retour ? Écris-nous :": "A question or some feedback? Write to us:",   "L'abonnement Bulle Premium se renouvelle automatiquement, sauf annulation au moins 24 h avant la fin de la période en cours. Le paiement est débité de ton compte Apple à la fin de l'essai gratuit de 14 jours. Tu peux gérer ou annuler ton abonnement à tout moment dans les réglages de ton compte Apple.": "Bulle Premium renews automatically unless you cancel at least 24 hours before the end of the current period. Payment is charged to your Apple account at the end of the 14-day free trial. You can manage or cancel your subscription at any time in your Apple account settings."
 };
   var bulleLang = 'fr';
 
